@@ -317,5 +317,16 @@ Isso é uma forma comum que existe no terminal/prompt de comando para extender o
 - Para criar Tags, ou seja, versões do seu projeto, utilize (git tag -a 1.0.0 -m "Readme finalizado"), onde "-a" equivale a uma anotação, um dado. E como essa é uma tag annotated, voce passar uma mensagem atraves do "-m"
 $ git tag -a <<versao>> -m "Insira sua mensagem aqui"
 
+- Para listar as tags criadas
+$ git tag
+
 - Para enviar essa Tag criada ao GitHub, utilize:
 $ git push origin master --tags
+
+- PERGUNTA
+
+Como faço para remover uma tag?
+
+- RESPOSTA
+
+Basta rodar git tag -d numero e para remover no repositório remoto é só rodar git push origin :tag  (dois pontos e o número da tag)
