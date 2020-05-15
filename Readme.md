@@ -169,13 +169,19 @@ $ git branch
 - Para mostrar os commits para os quais as branches estao apontando
 $ git branch -v
 
+- Para deletar uma branch
+$ git branch -D <nome-da-branch>
+
+- Para navegar entre as branch
+$ git checkout <nome-da-branch>
+
 - Para editar o comentario do ultimo commit efetuado
 $ git commit -m "Nova mensagem" --amend
 
 - Para editar o comentario de um commit antigo de modo interativo
 $ git rebase -i
 
-#Seu editor de texto irá iniciar. Troque no texto a palavra pick por reword (ou só r) do commit desejado, exemplo:
+- Seu editor de texto irá iniciar. Troque no texto a palavra pick por reword (ou só r) do commit desejado, exemplo:
 pick fef7501 Primeiro commit.
 reword 90d77f4 Segundo commit.
 pick b82a17f Terceiro commit.
@@ -198,12 +204,73 @@ pick b82a17f Terceiro commit.
 #
 # Note that empty commits are commented out
 
-#Salve e o arquivo e feche seu editor. Seu editor será iniciado novamente, dessa vez com a mensagem original do commit a ser modificado. Modifique-a, salve e feche o editor.
+- Salve e o arquivo e feche seu editor. Seu editor será iniciado novamente, dessa vez com a mensagem original do commit a ser modificado. Modifique-a, salve e feche o editor.
 
-#Tanto ao fazer um --amend simples ou um reword com rebase você estará rescrevendo o histórico do git. Isto é, o git gerará um novo SHA1 para o commit. Você não conseguirá, por exemplo, realizar um push pois parte da árvore original de commits não está presente na do seu branch local.
+- Tanto ao fazer um --amend simples ou um reword com rebase você estará rescrevendo o histórico do git. Isto é, o git gerará um novo SHA1 para o commit. Você não conseguirá, por exemplo, realizar um push pois parte da árvore original de commits não está presente na do seu branch local.
 
-No caso do rebase todos os commits que fazem parte do rebase serão rescritos (novo SHA1) mesmo se não alterados.
+- No caso do rebase todos os commits que fazem parte do rebase serão rescritos (novo SHA1) mesmo se não alterados.
 
-A não ser que você force o push (git push -f) o git rejeita commits que rescrevem seu histórico.
+- A não ser que você force o push (git push -f) o git rejeita commits que rescrevem seu histórico.
 
-A recomendação que eu deixo é: Somente rescreva commits que não estão em outras árvores (commits que ainda não foram em um push). Caso contrário saiba o que está fazendo..
+- A recomendação que eu deixo é: Somente rescreva commits que não estão em outras árvores (commits que ainda não foram em um push). Caso contrário saiba o que está fazendo..
+
+# Unindo branches
+
+# Entendo o Merge
+
+- Se criarmos uma nova branch e fizemos um commit nessa branch, a branch master continuara apontado para ela mesma e essa branch nova apontara para esse novo commit criado.
+
+- Mas ao fazer um MERGE, ou seja, juntar, mesclar todas as modificaçoes feitas na outra branch, um novo commit sera criado, para que tudo volte a funcionar de FORMA LINEAR.
+
+- O Merge é uma operação não destrutiva, ou seja, ele nao vai destruir nenhum commmit, pelo ao contrario, ele vai criar um novo commit para juntar tudo, ele nao estragar, movimentar o historico.
+
+- PERGUNTAS
+
+1. Sempre que um novo branch for criado a base dele será o master?
+
+2. É possível criar um branch apontando para um commit 2 versões mais antiga, por exemplo?
+
+3. Tem alguma forma de saber para qual commit o ponteiro do seu branch está apontando?
+
+- RESPOSTAS
+
+1) A base é criada a partir do branch que você está. Ou seja, se você estiver na branch-A, ao criar a branch-B, ela vai começar da A.
+
+2) Para fazer isso, primeiro faça um git checkout HASH-DESEJADO e então crie um novo branch a partir dali com:
+
+git checkout -b NOME-BRANCH
+
+3) Dá para saber a diferença entre o master e o branch, mas não exatamente qual o commit diretamente.
+
+# Prós:
+- Operação não destrutiva
+
+# Contras:
+- Commit extra
+- Histórico poluído
+
+# Entendo o Rebase
+
+- O rebase move o commit feito em outra branch para o final do ultimo commit da master, para ficar tudo de forma linear.
+
+- Ele pega tudo que ele tiver no branch separado, e coloca no inicio da fila, sempre. É um processo chamado de fast-formard.
+
+- Apos o rebase ser feito, a branch master e a outra branch  estarao apontando para o mesmo commit, evitando fazer aquela arvore confusa que o merge faz.
+
+- Um ponto NEGATIVO do rebase é que, é que a ordem cronologica é perdida. Pois ao fazer rebase, voce pega um commit de outra branch e move ele para o final da fila, ou seja, voce nao esta mais se preocupando se o commit foi feito antes ou depois, simplesmente voce estara colocando ele para o inicio da fila. Usando rebase voce acaba mudando o historico, e essa mudança de historica é preciso tomar bastante cuidado, pois se houver outra pessoa trabalhando na mesma branch, o que pode acontecer é que, ela nao vai conseguir subir as coisas dela, pois dará conflito, o git ira dizer que o historico esta diferente. Em geral é recomendado usar o rebase, sempre quando voce for da pull das modificações, exemplo, git pull --rebase, assim voce nao tera o risco de fazer mudança de historico que nao poderia e que outras pessoas estivessem mexendo e seria prejudicada.
+
+- PERGUNTAS
+
+1. Quando utilizo o rebase, ele está fazendo um merge? Ou seja ele considera meu branch atual com as modificações e mescla com meu master, passando a ser o ultimo commit do master?
+
+- RESPOSTAS
+
+1. Sim, o rebase é uma espécie de "merge", o que muda é que ele sempre tenta colocar suas mudanças ao final de tudo e ao invés de criar um commit só para fazer essa junção, ele coloca o commit ao final do branch de destino e só.
+
+# Prós:
+- Evita commits extras
+- Histórico linear
+
+# Contras:
+- Perde ordem cronológica
+
