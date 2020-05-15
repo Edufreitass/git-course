@@ -288,3 +288,30 @@ $ git stash list
 - Ele limpa tudo que estiver no stash, ou seja, ele nao terá mais nenhuma modificação guardada.
 $ git stash clear
 
+- Para criar ALIAS(atalhos), como por exemplo, o atalho para git status, utilize:
+$ git config --global alias.s status
+
+- Para listar os ALIAS criados, inclusive todas a configurações
+$ git config --list
+
+- Para remover um ALIAS criado
+$ git config --global --unset alias.nome_do_alias
+
+- PERGUNTA
+
+Qual a função do "--" em "git config --global alias." ou em qualquer outro comando ?
+Talvez seja uma pergunta boba, e que poderia ter sido feita em aulas anteriores, mas eu só fiquei curioso sobre a função do "--" agora.
+Procurei no stackexchange mas não achei nada que falasse especificamento do "--" .
+
+- RESPOSTA
+
+Opa, isso na realidade é quando você tá passando algum parâmetro para uma função. Existem duas formas:
+
+Um traço ( -  ), onde você passa a versão simplificada do parâmetro se existir. Exemplo: -h (help)
+Dois traços ( -- ), onde você passa a versão completa do parâmetro. Exemplo: --help
+
+Nem todos os comandos possuem a opção de passar parâmetros, mas a maioria sim =)
+
+Isso é uma forma comum que existe no terminal/prompt de comando para extender o poder dos comandos.
+
+
