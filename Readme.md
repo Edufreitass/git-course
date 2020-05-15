@@ -96,5 +96,25 @@ $ git diff
 - Exibe somente o nome do arquivo que foi modificado
 $ git diff --name-only
 
-- Para adicionar e commitar um arquivo com um unico comando
+- Para adicionar(commitar) todos os arquivos modificados + a mensagem
 $ git commit -am "Insira aqui a sua mensagem"
+
+- Para desfazer, voltar para o estado anterior da edição, um arquivo que esteja no estado de MODIFIED, utilize:
+$ git checkout <nome-do-arquivo>
+
+- Para resetar um arquivo que esteja pronto para commitar, ou seja, que foi feito o git add, que esteja no estado de MODIFIED e esteja na STAGE AREA, utilize:
+$ git reset HEAD <nome-do-arquivo>
+
+- Para desfazer um commit que subiu errado, por engano, utilize:
+$ git reset --soft --mixed --hard
+
+- Ele vai pegar as modificações e vai voltar(matar o commit feito), mas o arquivo estará na stage area pronto para ser commitado novamente
+$ git reset --soft <hash-do-commit>
+
+- Ele vai matar o commit, porem ele ira retornar os arquivos para antes do staged, ou seja, para o estado de MODIFIED
+$ git reset --mixed <hash-do-commit>
+
+- Ele simplesmente ignora a existencia do commit e tudo o que foi feito nele, ele vai matar tudo o que foi feito no commit
+$ git reset --hard <hash-do-commit>
+
+#Observação: O git reset é muito importante, porém é preciso tomar cuidado, pois ele altera o histórico dos commit, por exemplo, se voce ja tinha dado um push em um commit e deseja voltar, resetou com hard, matou o commit e deseja subir de novo, o git irá avisar, "existe uma diferença no que voce quer enviar e no que ele tem, por favor atualize", só será possivel atualizar com --force ou -f, entao o git reset --hard deve ser usado com bastante cuidado, deve-ser optar por essa forma, somente se nao tiver dado um push para o repositorio remoto, porque poderá causar bastante confusao no historico e bastante problemas.
