@@ -274,3 +274,17 @@ git checkout -b NOME-BRANCH
 # Contras:
 - Perde ordem cronológica
 
+- Ele é responsável por guardar modificações que ainda nao foram commitadas, numa pasta, num arquivo, em que eu possa chamar depois que eu achar necessário
+$ git stash
+
+- Apos o comando acima, ele irá salvar seu arquivo e mantera ele guardado ate que voce utilize outro comando para aplicar as modificações, sera exibida uma mensagem com a sigla WIP(Working in Progress)
+
+- Para aplicar as modificações guardadas no git stash, utilize:
+$ git stash apply
+
+- Exibe a lista de todos os stash que estiver em andamento
+$ git stash list
+
+- Ele limpa tudo que estiver no stash, ou seja, ele nao terá mais nenhuma modificação guardada.
+$ git stash clear
+

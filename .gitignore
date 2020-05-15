@@ -1,0 +1,5 @@
+# Para não subir arquivos com o formato .json ou qualquer outro formato
+*.json
+
+# Para ignorar um arquivo especifico
+test.txt
