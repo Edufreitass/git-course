@@ -314,4 +314,5 @@ Nem todos os comandos possuem a opção de passar parâmetros, mas a maioria sim
 
 Isso é uma forma comum que existe no terminal/prompt de comando para extender o poder dos comandos.
 
-
+- Para criar Tags, utilize (git tag -a 1.0.0 -m "Readme finalizado"), onde "-a" equivale a uma anotação, um dado. E como essa é uma tag annotated, voce passar uma mensagem atraves do "-m"
+$ git tag -a <<versao>> -m "Insira sua mensagem aqui"
