@@ -3,7 +3,11 @@
 #Plataforma de Estudo: Udemy
 
 Arquivo da aula de Git e Github para iniciantes.
+
 Este é um repositório teste para ensinar como o Git funciona.
+
+Saiba mais em [willianjusten.com.br](http://willianjusten.com.br)
+
 #Ciclo de Vida dos status dos Arquivos
 
 - UNTRACKED = O untracked ou não marcado, é o momento em que o arquivo acabou de ser adicionado no repositório, mas ainda não foi visto pelo git.
