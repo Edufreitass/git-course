@@ -330,3 +330,19 @@ Como faço para remover uma tag?
 - RESPOSTA
 
 Basta rodar git tag -d numero e para remover no repositório remoto é só rodar git push origin :tag  (dois pontos e o número da tag)
+
+- Para reverter um commit que tenha ocorrido algum problema no codigo, utilize:
+$ git revert HASH-DO-COMMIT
+
+O "git reverse"  retorna, apaga ou reverte a modificação que voce havia feito, porem ele nao some com o commit do log.
+Qual a utilidade do revert? Para que ele serve?
+Por exemplo, digamos que estou trabalhando em uma grande feature, e eu subi esssa feature para produção e ela quebrou em produção. Se eu desse um reset, eu perderia tudo o que eu fiz, e eu nao quero isso, eu quero trabalhar nisso depois, verificar o problema no meu codigo, quando eu tiver mais tempo. Entao eu dou um git revert, que vai reverter as mudanças, entao ele vai botar o codigo anterior de novo, que assim, eu subo isso. Mas se depois eu quiser eu posso dar um checkout ou reset nesse commit estragado para poder entender ele melhor, modificar e subir ele já corrigido. O revert SERVE PARA ISSO, PARA EU NAO PERDER DO MEU HISTORICO AS MUDANÇAS QUE EU FIZ. DIFERENTE DO reset QUE RESETA TUDO E NAO VOU TER MAIS DEPOIS.
+
+- Para apagar uma tag do meu repositorio LOCAL
+$ git tag -d 1.0.0
+
+- Para apgar uma tag do meu repositorio REMOTO
+$ git push origin :1.0.0
+
+- Para apagar uma branch do meu repositorio REMOTO
+$ git push origin :NOME-DA-BRANCH
