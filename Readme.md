@@ -133,3 +133,12 @@ git push -u origin master
 git remote add origin https://github.com/Edufreitass/git-course.git
 git push -u origin master
 
+- Para enviar os commits locais para o repositorio remoto
+$ git push origin master
+
+- Para clonar um repositorio do github
+$ git clone <endereco-do-repositorio>
+
+#Fork, serve para voce fazer uma copia de outro repositorio para o seu, para ajudar a contribuir com o codigo de outra pessoa, ajustar estruturas, corrigir bugs etc. As mudanças sendo feitas, voce envia um pull request para o outro dev, informando as alteraçoes feitas, os bugs corrigidos etc. Para fazer um fork, basta clicar no botao Fork e aguardar a copia a ser feita. O FORK é diferente do CLONE, o clone voce so consegue fazer para os repositorios que sao meus de fato, se eu nao for dono do repositorio, eu posso ate clonar, mas eu fizer alguma modificaçao, eu nao vou conseguir enviar, porque o repositorio nao é meu e eu nao tenho permissao. Entao quando eu quero fazer alguma modificação em um repositorio que nao é meu, eu faço um FORK e depois subo, faço um pull request.
+
+
