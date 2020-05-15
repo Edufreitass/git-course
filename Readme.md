@@ -118,3 +118,18 @@ $ git reset --mixed <hash-do-commit>
 $ git reset --hard <hash-do-commit>
 
 #Observação: O git reset é muito importante, porém é preciso tomar cuidado, pois ele altera o histórico dos commit, por exemplo, se voce ja tinha dado um push em um commit e deseja voltar, resetou com hard, matou o commit e deseja subir de novo, o git irá avisar, "existe uma diferença no que voce quer enviar e no que ele tem, por favor atualize", só será possivel atualizar com --force ou -f, entao o git reset --hard deve ser usado com bastante cuidado, deve-ser optar por essa forma, somente se nao tiver dado um push para o repositorio remoto, porque poderá causar bastante confusao no historico e bastante problemas.
+
+#GitHub - Criando um repositório remoto, passo a passo
+
+…or create a new repository on the command line
+echo "# git-course" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/Edufreitass/git-course.git
+git push -u origin master
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/Edufreitass/git-course.git
+git push -u origin master
+
