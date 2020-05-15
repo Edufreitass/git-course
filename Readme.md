@@ -330,3 +330,8 @@ Como faço para remover uma tag?
 - RESPOSTA
 
 Basta rodar git tag -d numero e para remover no repositório remoto é só rodar git push origin :tag  (dois pontos e o número da tag)
+
+TESTANDO GIT REVERT
+
+
+
