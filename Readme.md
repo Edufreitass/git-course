@@ -10,10 +10,18 @@ Saiba mais em [willianjusten.com.br](http://willianjusten.com.br)
 
 ## Ciclo de Vida dos status dos Arquivos
 
-- **UNTRACKED** = O untracked ou não marcado, é o momento em que o arquivo acabou de ser adicionado no repositório, mas ainda não foi visto pelo git.
-- **UNMODIFIED** = O unmodified ou não modificado, ele existe no git, mas não teve nenhuma modificação em cima dele.
-- **MODIFIED** = O modified ou modificado, acontece após modificarmos algum arquivo unmodified.
-- **STAGED** = O staged ou área, é o momento em que o arquivo vai ficar nessa stage, sendo avisada "o momento em que a versao for fechada, leve esses arquivos".
+- **UNTRACKED**
+
+    - O untracked ou não marcado, é o momento em que o arquivo acabou de ser adicionado no repositório, mas ainda não foi visto pelo git.
+- **UNMODIFIED** 
+    
+    - O unmodified ou não modificado, ele existe no git, mas não teve nenhuma modificação em cima dele.
+- **MODIFIED** 
+    
+    - O modified ou modificado, acontece após modificarmos algum arquivo unmodified.
+- **STAGED** 
+
+    - O staged ou área, é o momento em que o arquivo vai ficar nessa stage, sendo avisada "o momento em que a versao for fechada, leve esses arquivos".
 E assim que for feito o commit, que é criar essa versão, esse hash, todos os arquivos que foram commitados voltarão para o estado de unmodified.
 
 ## Comandos Básicos do Git
@@ -68,11 +76,11 @@ E assim que for feito o commit, que é criar essa versão, esse hash, todos os a
 
 - Para entrar no modo de inserçao(edição) do arquivo
 
-`$ Pressione o INSERT`
+    - Pressione o INSERT
 
 - Para salvar o arquivo
 
-`$ Pressione o ESC, logo após pressione o SHIFT + ":" e digite "w", que é igual a escrever e "q" para sair, ficando assim ":wq"`
+    - Pressione o ESC, logo após pressione o SHIFT + ":" e digite "w", que é igual a escrever e "q" para sair, ficando assim ":wq"
 
 - Para reportar(exibir) o estado atual do repositório
 
@@ -155,15 +163,23 @@ E assim que for feito o commit, que é criar essa versão, esse hash, todos os a
 ## GitHub - Criando um repositório remoto, passo a passo
 
 `…or create a new repository on the command line
+
 echo "# git-course" >> README.md
+
 git init
+
 git add README.md
+
 git commit -m "first commit"
+
 git remote add origin https://github.com/Edufreitass/git-course.git
+
 git push -u origin master
 
 …or push an existing repository from the command line
+
 git remote add origin https://github.com/Edufreitass/git-course.git
+
 git push -u origin master`
 
 - Para enviar os commits locais para o repositorio remoto
@@ -174,7 +190,7 @@ git push -u origin master`
 
 `$ git clone <endereco-do-repositorio>`
 
-#Fork, serve para voce fazer uma copia de outro repositorio para o seu, para ajudar a contribuir com o codigo de outra pessoa, ajustar estruturas, corrigir bugs etc. As mudanças sendo feitas, voce envia um pull request para o outro dev, informando as alteraçoes feitas, os bugs corrigidos etc. Para fazer um fork, basta clicar no botao Fork e aguardar a copia a ser feita. O FORK é diferente do CLONE, o clone voce so consegue fazer para os repositorios que sao meus de fato, se eu nao for dono do repositorio, eu posso ate clonar, mas eu fizer alguma modificaçao, eu nao vou conseguir enviar, porque o repositorio nao é meu e eu nao tenho permissao. Entao quando eu quero fazer alguma modificação em um repositorio que nao é meu, eu faço um FORK e depois subo, faço um pull request.
+Fork, serve para voce fazer uma copia de outro repositorio para o seu, para ajudar a contribuir com o codigo de outra pessoa, ajustar estruturas, corrigir bugs etc. As mudanças sendo feitas, voce envia um pull request para o outro dev, informando as alteraçoes feitas, os bugs corrigidos etc. Para fazer um fork, basta clicar no botao Fork e aguardar a copia a ser feita. O FORK é diferente do CLONE, o clone voce so consegue fazer para os repositorios que sao meus de fato, se eu nao for dono do repositorio, eu posso ate clonar, mas eu fizer alguma modificaçao, eu nao vou conseguir enviar, porque o repositorio nao é meu e eu nao tenho permissao. Entao quando eu quero fazer alguma modificação em um repositorio que nao é meu, eu faço um FORK e depois subo, faço um pull request.
 
 ## O que é um branch?
 
@@ -230,23 +246,23 @@ git push -u origin master`
 reword 90d77f4 Segundo commit.
 pick b82a17f Terceiro commit.
 
-# Rebase 3620553..b82a17f onto 3620553
-#
-# Commands:
-#  p, pick = use commit
-#  r, reword = use commit, but edit the commit message
-#  e, edit = use commit, but stop for amending
-#  s, squash = use commit, but meld into previous commit
-#  f, fixup = like "squash", but discard this commit's log message
-#  x, exec = run command (the rest of the line) using shell
-#
-# These lines can be re-ordered; they are executed from top to bottom.
-#
-# If you remove a line here THAT COMMIT WILL BE LOST.
-#
-# However, if you remove everything, the rebase will be aborted.
-#
-# Note that empty commits are commented out`
+ Rebase 3620553..b82a17f onto 3620553
+
+ Commands:
+  p, pick = use commit
+  r, reword = use commit, but edit the commit message
+  e, edit = use commit, but stop for amending
+  s, squash = use commit, but meld into previous commit
+  f, fixup = like "squash", but discard this commit's log message
+  x, exec = run command (the rest of the line) using shell
+
+ These lines can be re-ordered; they are executed from top to bottom.
+
+ If you remove a line here THAT COMMIT WILL BE LOST.
+
+ However, if you remove everything, the rebase will be aborted.
+
+ Note that empty commits are commented out`
 
 - Salve e o arquivo e feche seu editor. Seu editor será iniciado novamente, dessa vez com a mensagem original do commit a ser modificado. Modifique-a, salve e feche o editor.
 
